@@ -9,10 +9,11 @@ trait Clippette[F[_]]{
 }
 object Clippette extends ClipetteCompanionPlatform {
 
+  def apply[F[_]](implicit ev1: Clippette[F]): Clippette[F] = ev1
   // def rawPaste[F[_]: Async](s: String): F[Unit]
   // def rawCopy[F[_]: Async]: F[String]
   
-  def impl[F[_]: Async]: Clippette[F] = new Clippette[F] {
+  implicit def impl[F[_]: Async]: Clippette[F] = new Clippette[F] {
     def copy: F[String] = rawCopy[F]
     
     def paste(data: String): F[Unit] = rawPaste[F](data)
