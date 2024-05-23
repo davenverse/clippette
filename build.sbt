@@ -12,7 +12,7 @@ val fs2V = "3.2.3"
 val http4sV = "0.23.7"
 val circeV = "0.14.1"
 val doobieV = "1.0.0-RC1"
-val munitCatsEffectV = "1.0.7"
+val munitCatsEffectV = "2.0.0"
 
 
 // Projects
@@ -35,7 +35,7 @@ lazy val core = crossProject(JVMPlatform, JSPlatform)
       "org.typelevel"               %%% "cats-effect"                % catsEffectV,
 
 
-      "org.typelevel"               %%% "munit-cats-effect-3"        % munitCatsEffectV         % Test,
+      "org.typelevel"               %%% "munit-cats-effect"        % munitCatsEffectV         % Test,
 
     )
   ).jsSettings(
